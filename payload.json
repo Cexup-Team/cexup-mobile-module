@@ -1,0 +1,29 @@
+{
+    "patientdata": {
+        "id": "name",
+        "nik": "",
+        "jk": "",
+        "address": "",
+        "city_born": "",
+        "date_born": ""
+    },
+    "data": {
+        "id": "",
+        "name": "",
+        "id_nurse": "",
+        "id_patient": "",
+        "id_device": "",
+        "type": "",
+        "result": "",
+        "created_at": "",
+        "updated_at": ""
+    },
+    "device": {
+        "id": "",
+        "type": "",
+        "mac_addr": "",
+        "is_active": "",
+        "device_type": ""
+    },
+    "nurse": {}
+}

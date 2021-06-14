@@ -1,0 +1,4 @@
+
+include ':app'
+rootProject.name = "Cexup-Device"
+include ':cexup-services'

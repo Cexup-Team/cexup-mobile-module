@@ -1,0 +1,33 @@
+data layer
+	service
+	local
+
+integrasi sdk
+	microlife(BPM)
+	mintti(ECG)
+	coola(ECG)
+
+Authentikasi
+	layout
+	login
+	
+user/pasien
+	layout
+	crud
+	temp user
+	sync user
+
+nurse
+	layout
+	crud
+	temp nurse
+	sync nurse
+	
+tes kesehatan bpm
+	layout
+	read data
+
+setting
+	layout
+	
+		
