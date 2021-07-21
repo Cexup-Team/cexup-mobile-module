@@ -41,7 +41,7 @@ dependencies {
 
     implementation project(":cexup-analytics")
     implementation project(":cexup-data-storage")
-    implementation project(":cexup-services")
+
     // Required -- JUnit 4 framework
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'androidx.test:core:1.4.0'

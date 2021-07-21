@@ -1,5 +1,4 @@
 
 rootProject.name = "Cexup-Module"
-include ':cexup-services'
 include ':cexup-data-storage'
 include ':cexup-analytics'
