@@ -2,9 +2,9 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'com.github.dcendents.android-maven'
-    group = 'com.github.cexup-team'
-}
 
+}
+group = 'com.github.cexup-team'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
