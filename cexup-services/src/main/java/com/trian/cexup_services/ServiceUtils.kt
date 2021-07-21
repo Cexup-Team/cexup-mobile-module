@@ -76,14 +76,14 @@ class ServiceUtils {
             if(index > 0){
                 jsonArray += ","
             }
-          jsonArray += (populateSingleMeasurement(measurement,measurement.type))
+            jsonArray += (populateSingleMeasurement(measurement))
 
 
         }
         return jsonArray.trimIndent()
     }
-    fun populateSingleMeasurement(measurement: Measurement, type: Int?):String{
-        when(type){
+    fun populateSingleMeasurement(measurement: Measurement):String{
+        when(measurement.type){
             TYPE_TEMPERATURE->{
                 val temp = jsonUtils().fromJson(measurement.result, TemperatureModel::class.java)
                 return  """

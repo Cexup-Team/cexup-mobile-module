@@ -74,8 +74,8 @@ class ApiServices {
                                 jsonObject.getString("type"),
                                 jsonObject.getString("no_type"),
                                 jsonObject.getString("address")
-                                ),token=token,
-                               message =  "Success")
+                            ),token=token,
+                                message =  "Success")
                         }
                     }
                 }
@@ -114,7 +114,7 @@ class ApiServices {
                                 user.getString("phone_number"),
                                 user.getString("address"),
                                 user.getString("thumb")
-                               )
+                            )
                             users.add(patient)
                         }
                         patientResponse?.onResult(true,data=users,message = "Success")
@@ -128,7 +128,7 @@ class ApiServices {
     /*
     * send measurement consumer
     * */
-    fun sendMeasurementKt( measurement:Measurement, patient: Patient,type: Int, onResponse:(success: Boolean,data:JSONObject?,message:String)->Unit
+    fun sendMeasurementKt( measurement:Measurement, patient: Patient, onResponse:(success: Boolean,data:JSONObject?,message:String)->Unit
     ){
         val jsonString =
             """
@@ -143,7 +143,7 @@ class ApiServices {
                     "address":"${patient.address}"
                 },
                 "data":[
-                    ${ServiceUtils().populateSingleMeasurement(measurement,type)}
+                    ${ServiceUtils().populateSingleMeasurement(measurement)}
                 ]
             }
         """.trimIndent()
@@ -215,9 +215,9 @@ class ApiServices {
             }
     }
 
-    fun sendMeasurement(measurement:Measurement,patient: Patient,type: Int,onResponse: onResponse){
+    fun sendMeasurement(measurement:Measurement,patient: Patient,onResponse: onResponse){
         val jsonString =
-                """
+            """
             {
                 "member":{
                     "type":"${patient.type}",
@@ -229,7 +229,7 @@ class ApiServices {
                     "address":"${patient.address}"
                 },
                 "data":[
-                    ${ServiceUtils().populateSingleMeasurement(measurement,type)}
+                    ${ServiceUtils().populateSingleMeasurement(measurement)}
                 ]
             }
         """.trimIndent()
@@ -251,8 +251,8 @@ class ApiServices {
                         }
                     }is Result.Failure->{
                     Log.e(ServiceUtils.TAG_DEBUG,"${result.getException().message}")
-                        onResponse.onResult(false,null,"${result.getException().message}")
-                    }
+                    onResponse.onResult(false,null,"${result.getException().message}")
+                }
 
                 }
             }
@@ -305,7 +305,7 @@ class ApiServices {
     * send measurement consumer
     * */
 
-    fun sendMeasurementCorporateKt( measurement:Measurement, patient: Patient,type: Int,nurse: Nurse, onResponse:(success: Boolean,data:JSONObject?,message:String)->Unit
+    fun sendMeasurementCorporateKt( measurement:Measurement, patient: Patient,nurse: Nurse, onResponse:(success: Boolean,data:JSONObject?,message:String)->Unit
     ){
         val jsonString =
             """
@@ -329,7 +329,7 @@ class ApiServices {
                     "address":"${patient.address}"
                 },
                 "data":[
-                    ${ServiceUtils().populateSingleMeasurement(measurement,type)}
+                    ${ServiceUtils().populateSingleMeasurement(measurement)}
                 ]
             }
         """.trimIndent()
@@ -409,7 +409,7 @@ class ApiServices {
             }
     }
 
-    fun sendMeasurementCorporate(measurement:Measurement,patient: Patient,type: Int,nurse: Nurse,onResponse: onResponse){
+    fun sendMeasurementCorporate(measurement:Measurement,patient: Patient,nurse: Nurse,onResponse: onResponse){
         val jsonString =
             """
             {
@@ -432,7 +432,7 @@ class ApiServices {
                     "address":"${patient.address}"
                 },
                 "data":[
-                    ${ServiceUtils().populateSingleMeasurement(measurement,type)}
+                    ${ServiceUtils().populateSingleMeasurement(measurement)}
                 ]
             }
         """.trimIndent()
