@@ -35,10 +35,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.annotation:annotation:1.2.0'
 
-    //https://fuel.gitbook.io
-    implementation 'com.github.kittinunf.fuel:fuel:2.3.1'
-    implementation 'com.github.kittinunf.fuel:fuel-android:2.3.1'
-    implementation 'com.github.kittinunf.fuel:fuel-gson:2.3.1'
+
 
     implementation project(":cexup-analytics")
     implementation project(":cexup-data-storage")
@@ -57,7 +54,6 @@ android {
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
