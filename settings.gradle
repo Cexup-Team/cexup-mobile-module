@@ -1,4 +1,6 @@
 
 include ':app'
-rootProject.name = "Cexup-Device"
+rootProject.name = "Cexup-Module"
 include ':cexup-services'
+include ':cexup-data-storage'
+include ':cexup-analytics'
