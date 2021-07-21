@@ -60,7 +60,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
-
+    //issue  java.lang.ClassNotFoundException: Didn't find class "com.github.kittinunf.fuel.core.FuelManager" on path: DexPathList[[dex file
+    dexOptions {
+        preDexLibraries false
+    }
     buildTypes {
         release {
             minifyEnabled false

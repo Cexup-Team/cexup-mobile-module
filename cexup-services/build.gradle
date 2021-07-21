@@ -25,6 +25,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    //issue  java.lang.ClassNotFoundException: Didn't find class "com.github.kittinunf.fuel.core.FuelManager" on path: DexPathList[[dex file
+    dexOptions {
+        preDexLibraries false
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
