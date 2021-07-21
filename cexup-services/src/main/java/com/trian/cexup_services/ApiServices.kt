@@ -15,6 +15,14 @@ import java.io.File
 
 
 class ApiServices {
+
+
+    init {
+        //FuelManager.instance.basePath = ServiceUtils.base_url;
+    }
+
+
+
     /**
      * callback impl response
      * @param success
@@ -35,10 +43,6 @@ class ApiServices {
         fun onResult(success: Boolean,data: List<Patient>?,message: String)
     }
     private var response:onResponse? = null;
-
-    init {
-        FuelManager.instance.basePath = ServiceUtils.base_url;
-    }
     fun utils():ServiceUtils{
         return ServiceUtils();
     }
@@ -47,7 +51,7 @@ class ApiServices {
      *
      * **/
     fun login(username:String,password:String, authResponse: AuthResponse){
-        Fuel.upload(ServiceUtils.url_login_nurse)
+        Fuel.upload(ServiceUtils.base_url+ServiceUtils.url_login_nurse)
             .also { Log.i(ServiceUtils.TAG_DEBUG,"login nurse") }
             .add(InlineDataPart(username,name = "username"),InlineDataPart(password,name = "password"))
             .responseString {
@@ -83,7 +87,7 @@ class ApiServices {
 
     }
     fun getAllPatient(token: String?,patientResponse: PatientResponse) {
-        Fuel.get(ServiceUtils.url_get_all_patient).header(Headers.AUTHORIZATION,"Bearer $token").also {
+        Fuel.get(ServiceUtils.base_url+ServiceUtils.url_get_all_patient).header(Headers.AUTHORIZATION,"Bearer $token").also {
             Log.i(ServiceUtils.TAG_DEBUG,"get all patient")
         }.responseString{request,_,result->
             when(result){
@@ -147,29 +151,28 @@ class ApiServices {
                 ]
             }
         """.trimIndent()
-        FuelManager.instance.basePath = ServiceUtils.base_measurement
 
 
-        Fuel.post(ServiceUtils.url_post_measurement)
-            .header("Content-Type","application/json")
-            .body(jsonString)
-            .responseString{
-                    request, response, result ->
-                when(result){
-                    is Result.Success->{
-                        val(data,_) = result
-                        Log.e(ServiceUtils.TAG_DEBUG,"${request.headers}")
-                        data?.let {
-                            Log.e(ServiceUtils.TAG_DEBUG,"${JSONObject(it)}")
-                            onResponse(true,JSONObject(it),"")
-                        }
-                    }is Result.Failure->{
-                    Log.e(ServiceUtils.TAG_DEBUG,"${result.getException().message}")
-                    onResponse(false,null,"${result.getException().message}")
+
+            Fuel.post(ServiceUtils.base_measurement+ServiceUtils.url_post_measurement)
+                .header("Content-Type","application/json")
+                .body(jsonString)
+                .responseString{ request, response, result ->
+                    when(result){
+                        is Result.Success->{
+                            val(data,_) = result
+                            Log.e(ServiceUtils.TAG_DEBUG,"${request.headers}")
+                            data?.let {
+                                Log.e(ServiceUtils.TAG_DEBUG,"${JSONObject(it)}")
+                                onResponse(true,JSONObject(it),"")
+                            }
+                        }is Result.Failure->{
+                        Log.e(ServiceUtils.TAG_DEBUG,"${result.getException().message}")
+                        onResponse(false,null,"${result.getException().message}")
+                    }
+
+                    }
                 }
-
-                }
-            }
     }
 
     fun sendMeasurementKt(measurement:List<Measurement>,patient: Patient,onResponse: (success: Boolean,data:JSONObject?,message:String)->Unit){
@@ -190,10 +193,10 @@ class ApiServices {
                 ]
             }
         """.trimIndent()
-        FuelManager.instance.basePath = ServiceUtils.base_measurement
 
 
-        Fuel.post(ServiceUtils.url_post_measurement)
+
+        Fuel.post(ServiceUtils.base_measurement+ServiceUtils.url_post_measurement)
             .header("Content-Type","application/json")
             .body(jsonString)
             .responseString{
@@ -236,7 +239,7 @@ class ApiServices {
         FuelManager.instance.basePath = ServiceUtils.base_measurement
 
 
-        Fuel.post(ServiceUtils.url_post_measurement)
+        Fuel.post(ServiceUtils.base_measurement+ServiceUtils.url_post_measurement)
             .header("Content-Type","application/json")
             .body(jsonString)
             .responseString{
@@ -276,10 +279,9 @@ class ApiServices {
                 ]
             }
         """.trimIndent()
-        FuelManager.instance.basePath = ServiceUtils.base_measurement
 
 
-        Fuel.post(ServiceUtils.url_post_measurement)
+        Fuel.post(ServiceUtils.base_measurement+ServiceUtils.url_post_measurement)
             .header("Content-Type","application/json")
             .body(jsonString)
             .responseString{
@@ -333,10 +335,10 @@ class ApiServices {
                 ]
             }
         """.trimIndent()
-        FuelManager.instance.basePath = ServiceUtils.base_measurement
 
 
-        Fuel.post(ServiceUtils.url_post_measurement)
+
+        Fuel.post(ServiceUtils.base_measurement+ServiceUtils.url_post_measurement)
             .header("Content-Type","application/json")
             .body(jsonString)
             .responseString{
@@ -384,10 +386,10 @@ class ApiServices {
                 ]
             }
         """.trimIndent()
-        FuelManager.instance.basePath = ServiceUtils.base_measurement
 
 
-        Fuel.post(ServiceUtils.url_post_measurement)
+
+        Fuel.post(ServiceUtils.base_measurement+ServiceUtils.url_post_measurement)
             .header("Content-Type","application/json")
             .body(jsonString)
             .responseString{
@@ -436,10 +438,10 @@ class ApiServices {
                 ]
             }
         """.trimIndent()
-        FuelManager.instance.basePath = ServiceUtils.base_measurement
 
 
-        Fuel.post(ServiceUtils.url_post_measurement)
+
+        Fuel.post(ServiceUtils.base_measurement+ServiceUtils.url_post_measurement)
             .header("Content-Type","application/json")
             .body(jsonString)
             .responseString{
@@ -488,10 +490,9 @@ class ApiServices {
                 ]
             }
         """.trimIndent()
-        FuelManager.instance.basePath = ServiceUtils.base_measurement
 
 
-        Fuel.post(ServiceUtils.url_post_measurement)
+        Fuel.post(ServiceUtils.base_measurement+ServiceUtils.url_post_measurement)
             .header("Content-Type","application/json")
             .body(jsonString)
             .responseString{
