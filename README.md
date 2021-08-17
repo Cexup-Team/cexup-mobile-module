@@ -2,6 +2,27 @@
 
 this is monorepo for mobile app of cexup
 
+## stack
+future the app whole app cexup include(corporate,white label,etc) use the tech stack
+
+- [x] @mentions, #refs, [links](),
+**formatting**, and <del>tags</del>
+supported
+- [x] Flutter
+- [ ] Jetpack Compose
+- [ ] Kotlin
+- [ ] Room
+- [ ] Bluetooth SDK
+
+## Module
+
+Name | Description
+------------ | -------------
+Corporate | Containt app for corporate device
+Features | All fetures for connected to device
+Cexup-DataStorage | Data storage including room database,persistance,etc
+Cexup-Service | Networking for entire app except flutter module
+
 
 
 ## Proposed ui/ux
