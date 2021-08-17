@@ -5,10 +5,7 @@ this is monorepo for mobile app of cexup
 ## stack
 future the app whole app cexup include(corporate,white label,etc) use the tech stack
 
-- [x] @mentions, #refs, [links](),
-**formatting**, and <del>tags</del>
-supported
-- [x] Flutter
+- [ ] Flutter
 - [ ] Jetpack Compose
 - [ ] Kotlin
 - [ ] Room
